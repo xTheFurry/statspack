@@ -1,0 +1,131 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<%- include('başlık.ejs', {bot, user, path}) %>
+<div class="container">
+
+	<div class="row justify-content-md-center">
+		<div align="center"><h2 style="color: #fff;"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Kanal İsim Sistem,</h2></div>
+  </div>
+	
+  <!--<center><h7 style="color:red">Bakımda...</h7></center>-->
+  
+	<div class="row">
+    
+<div class="col">
+    <div class="container">
+      <form method="post">
+        <ul class="list-group list-group-flush">
+          
+          <center> <h6 style="color: #fff; margin: 5px;">Kanal isimlerinde kullanabileceğiniz değişkenler;<br><br>
+    Sunucudaki kişi sayısı için: <a style="color:lightgreen">&#123;toplamüye&#125;</a><br>
+    Sunucudaki bot sayısı için: <a style="color:lightgreen">&#123;toplambot&#125;</a><br>
+    Sunucudaki toplam aktif kişi sayısı için: <a style="color:lightgreen">&#123;toplamaktif&#125;</a><br>
+    Sunucudaki rekor aktif sayısı için: <a style="color:lightgreen">&#123;rekoraktif&#125;</a><br>
+    Sunucudaki son üye için: <a style="color:lightgreen">&#123;sonüye&#125;</a><br><br>(<a style="color:red">Not:</a> <a style="color:lightgreen">&#123;&#125;</a> işaretleri dahildir!)</li>
+</h6></center>
+          
+
+        
+          <div class="row">
+      <div class="col-25">
+          <label for="toplamü">Toplam Üye</label>
+      </div>
+      <div class="col-75">
+        <% if (bot.ayar.has(`isimtoplam_${guild.id}`) === false) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamü" id="toplamü" maxlength="1950" placeholder="Üstteki değişkenler ile birlikte burayı doldurunuz!">
+          <a href="/dashboard/<%=guild.id%>/toplamuye/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`isimtoplam_${guild.id}`) === true) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamü" id="toplamü" maxlength="1950" value="<%=bot.ayar.fetch(`isimtoplam_${guild.id}`)%>">
+          <a href="/dashboard/<%=guild.id%>/toplamuye/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+      </div>
+    </div>
+        
+          <div class="row">
+      <div class="col-25">
+          <label for="toplamb">Toplam Bot</label>
+      </div>
+      <div class="col-75">
+        <% if (bot.ayar.has(`isimbot_${guild.id}`) === false) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamb" id="toplamb" maxlength="1950" placeholder="Üstteki değişkenler ile birlikte burayı doldurunuz!">
+          <a href="/dashboard/<%=guild.id%>/toplambot/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`isimbot_${guild.id}`) === true) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamb" id="toplamb" maxlength="1950" value="<%=bot.ayar.fetch(`isimbot_${guild.id}`)%>">
+          <a href="/dashboard/<%=guild.id%>/toplambot/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+      </div>
+    </div>
+        
+                
+          <div class="row">
+      <div class="col-25">
+          <label for="toplamaktif">Toplam Aktif</label>
+      </div>
+      <div class="col-75">
+        <% if (bot.ayar.has(`isimaktif_${guild.id}`) === false) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamaktif" id="toplamaktif" maxlength="1950" placeholder="Üstteki değişkenler ile birlikte burayı doldurunuz!">
+          <a href="/dashboard/<%=guild.id%>/toplamaktif/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`isimaktif_${guild.id}`) === true) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamaktif" id="toplamaktif" maxlength="1950" value="<%=bot.ayar.fetch(`isimaktif_${guild.id}`)%>">
+          <a href="/dashboard/<%=guild.id%>/toplamaktif/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+      </div>
+    </div>
+        
+                        
+          <div class="row">
+      <div class="col-25">
+          <label for="toplamrekaktif">Rekor Aktif</label>
+      </div>
+      <div class="col-75">
+        <% if (bot.ayar.has(`isimrekoraktif_${guild.id}`) === false) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamrekaktif" id="toplamrekaktif" maxlength="1950" placeholder="Üstteki değişkenler ile birlikte burayı doldurunuz!">
+          <a href="/dashboard/<%=guild.id%>/toplamrekaktif/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`isimrekoraktif_${guild.id}`) === true) { %>
+        <input type="text" style="text-align: left; width:87%;" name="toplamrekaktif" id="toplamrekaktif" maxlength="1950" value="<%=bot.ayar.fetch(`isimrekoraktif_${guild.id}`)%>">
+          <a href="/dashboard/<%=guild.id%>/toplamrekaktif/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+      </div>
+    </div>
+        
+        
+                  <div class="row">
+      <div class="col-25">
+          <label for="sonüye">Son Üye</label>
+      </div>
+      <div class="col-75">
+        <% if (bot.ayar.has(`isimsonüye_${guild.id}`) === false) { %>
+        <input type="text" style="text-align: left; width:87%;" name="sonüye" id="sonüye" maxlength="1950" placeholder="Üstteki değişkenler ile birlikte burayı doldurunuz!">
+          <a href="/dashboard/<%=guild.id%>/sonuye/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`isimsonüye_${guild.id}`) === true) { %>
+        <input type="text" style="text-align: left; width:87%;" name="sonüye" id="sonüye" maxlength="1950" value="<%=bot.ayar.fetch(`isimsonüye_${guild.id}`)%>">
+          <a href="/dashboard/<%=guild.id%>/sonuye/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+      </div>
+    </div>
+    
+       
+          
+          </ul>
+          <div style="width: 100%; text-align: right; margin-top: 15px;">
+    <button style="background-color:blue; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-fw fa-save" aria-hidden="true"></i> Kaydet</button>
+           <a href="yonet" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-mail-reply" aria-hidden="true"></i> Geri Dön</button> </a>    </div>
+
+      </div>
+      </form>
+    </div>
+  </div>
+    
+</div>
+
+
+<script>
+	var ts = parseInt($('#guildCreate').text());
+	$('#guildCreate').html(`<strong>Created:</strong>: ${moment(ts).format('MMMM Do YYYY (h:mm a)')}`);  
+</script>
+<%- include('footer.ejs', {bot, user, path}) %>
